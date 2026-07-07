@@ -53,17 +53,6 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-}
-
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  font-weight: 900;
 }
 
 .brand strong,
