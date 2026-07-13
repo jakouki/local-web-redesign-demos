@@ -1,0 +1,312 @@
+:root {
+  --ink: #111312;
+  --black: #080a09;
+  --paper: #f2f0e9;
+  --white: #fff;
+  --line: #cbc9c0;
+  --muted: #666760;
+  --yellow: #f2c300;
+  --orange: #e55217;
+  --green: #183c2f;
+  --max: 1500px;
+  --gutter: clamp(22px, 5vw, 80px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.demo-notice { height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--black); font-size: 11px; font-weight: 800; letter-spacing: .18em; }
+.site-header { height: 86px; position: sticky; top: 0; z-index: 100; display: flex; align-items: stretch; background: rgba(8,10,9,.96); color: #fff; border-bottom: 1px solid rgba(255,255,255,.13); }
+.brand { width: 350px; display: flex; align-items: center; gap: 14px; padding: 10px 26px; border-right: 1px solid rgba(255,255,255,.13); }
+.brand img { width: 66px; height: 66px; object-fit: contain; }
+.brand span { display: grid; line-height: 1.25; }
+.brand b { font-family: "Yu Mincho", serif; font-size: 18px; letter-spacing: .08em; }
+.brand small { margin-top: 6px; color: #a5a7a4; font-size: 8px; letter-spacing: .22em; }
+.global-nav { margin-left: auto; display: flex; align-items: stretch; }
+.global-nav a { min-width: 118px; display: grid; place-items: center; padding: 0 15px; border-left: 1px solid rgba(255,255,255,.13); font-size: 12px; font-weight: 700; letter-spacing: .04em; transition: color .2s, background .2s; }
+.global-nav a:hover { color: var(--yellow); background: rgba(255,255,255,.04); }
+.global-nav .nav-contact { min-width: 148px; background: var(--yellow); color: #111; }
+.global-nav .nav-contact:hover { color: #111; background: #ffd62c; }
+.menu-button { display: none; }
+
+.hero { min-height: calc(100svh - 114px); position: relative; overflow: hidden; display: flex; align-items: flex-end; color: #fff; background: #111; }
+.hero-image, .hero-shade, .hero-grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-image { object-fit: cover; object-position: center 58%; }
+.hero-shade { background: linear-gradient(90deg, rgba(0,0,0,.91) 0%, rgba(0,0,0,.68) 38%, rgba(0,0,0,.18) 72%, rgba(0,0,0,.2) 100%), linear-gradient(0deg, rgba(0,0,0,.65), transparent 50%); }
+.hero-grid { opacity: .13; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 72px 72px; }
+.hero::after { content: ""; position: absolute; right: -7vw; bottom: -28vw; width: 54vw; height: 54vw; border: 1px solid rgba(242,195,0,.55); border-radius: 50%; }
+.hero-content { position: relative; z-index: 2; width: min(1250px, 92%); padding: clamp(70px, 10vh, 140px) var(--gutter) clamp(85px, 12vh, 135px); }
+.eyebrow { margin: 0 0 24px; color: var(--orange); font-family: Arial, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .24em; }
+.eyebrow.light { color: var(--yellow); }
+.hero h1 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(48px, 5.7vw, 92px); font-weight: 600; letter-spacing: -.045em; line-height: 1.12; }
+.hero h1 span { display: block; width: max-content; max-width: 100%; white-space: nowrap; }
+.hero-lead { max-width: 670px; margin: 32px 0 0; font-size: clamp(14px, 1.25vw, 19px); font-weight: 600; line-height: 2; }
+.hero-actions { display: flex; gap: 12px; margin-top: 38px; }
+.button { min-width: 230px; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 0 25px; font-size: 13px; font-weight: 800; letter-spacing: .04em; transition: transform .2s, background .2s; }
+.button:hover { transform: translateY(-2px); }
+.button.primary { background: var(--yellow); color: #111; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%); }
+.button.ghost { color: #fff; border: 1px solid rgba(255,255,255,.55); }
+.hero-meta { position: absolute; z-index: 3; left: var(--gutter); right: var(--gutter); bottom: 24px; display: flex; gap: 28px; color: rgba(255,255,255,.65); font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: .24em; }
+
+.facts { position: relative; z-index: 5; display: grid; grid-template-columns: repeat(4, 1fr); margin-top: -1px; background: var(--yellow); clip-path: polygon(0 0, calc(100% - 45px) 0, 100% 45px, 100% 100%, 0 100%); }
+.facts div { min-height: 152px; display: flex; align-items: baseline; gap: 16px; padding: 45px clamp(24px, 4vw, 60px); border-right: 1px solid rgba(0,0,0,.22); }
+.facts strong { font-family: Arial, sans-serif; font-size: clamp(32px, 4.3vw, 68px); line-height: 1; letter-spacing: -.05em; }
+.facts span { font-size: 11px; font-weight: 800; letter-spacing: .06em; white-space: nowrap; }
+
+.section { max-width: var(--max); margin: 0 auto; padding: clamp(100px, 12vw, 190px) var(--gutter); }
+.section-heading h2 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(42px, 5vw, 78px); font-weight: 600; letter-spacing: -.04em; line-height: 1.25; word-break: keep-all; }
+.about { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(70px, 10vw, 170px); align-items: start; }
+.about-copy { padding-top: 74px; border-top: 4px solid var(--ink); }
+.about-copy p { margin: 0 0 24px; font-size: 15px; }
+.about-copy .lead { font-family: "Yu Mincho", serif; font-size: clamp(21px, 2vw, 31px); font-weight: 700; line-height: 1.8; }
+.signature { padding-top: 20px; text-align: right; font-family: "Yu Mincho", serif; }
+
+.work-fields { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--ink); color: #fff; }
+.field { min-height: 440px; position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(35px, 5vw, 72px); overflow: hidden; border-right: 1px solid rgba(255,255,255,.18); }
+.field::after { content: ""; position: absolute; width: 360px; height: 360px; right: -210px; bottom: -210px; border: 1px solid rgba(242,195,0,.35); border-radius: 50%; transition: right .4s, bottom .4s; }
+.field:hover::after { right: -150px; bottom: -150px; }
+.field-number { color: var(--yellow); font-family: Arial, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+.field div p { margin: 0 0 10px; color: #8f918e; font: 800 10px Arial, sans-serif; letter-spacing: .18em; }
+.field h3 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(31px, 3vw, 48px); }
+.field > p { max-width: 350px; margin: 0; color: #c9cbc8; font-size: 13px; }
+.field-pipe { background: #1b1e1c; clip-path: polygon(0 0, calc(100% - 42px) 0, 100% 42px, 100% 100%, 0 100%); }
+
+.row-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; }
+.row-heading > p { max-width: 590px; margin: 0 0 12px; padding-top: 30px; border-top: 3px solid var(--ink); font-size: 14px; }
+.project-feature { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(40px, 6vw, 90px); margin-top: 80px; align-items: start; }
+.feature-photo { position: sticky; top: 120px; margin: 0; }
+.feature-photo img { width: 100%; aspect-ratio: 1.12; object-fit: cover; }
+.feature-photo figcaption { margin-top: 18px; font-family: "Yu Mincho", serif; font-size: 16px; font-weight: 700; line-height: 1.65; }
+.feature-photo figcaption span { display: block; margin-bottom: 6px; color: var(--orange); font: 800 10px Arial, sans-serif; letter-spacing: .18em; }
+.project-list-title { display: flex; justify-content: space-between; align-items: baseline; padding: 0 0 18px; border-bottom: 4px solid var(--ink); }
+.project-list-title span { font: 800 11px Arial, sans-serif; letter-spacing: .2em; }
+.project-list-title b { font-family: "Yu Mincho", serif; font-size: 25px; }
+.project-list ol { margin: 0; padding: 0; list-style: none; }
+.project-list li { display: grid; grid-template-columns: 42px 1fr; gap: 15px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.project-list li > span { color: var(--orange); font: 700 10px Arial, sans-serif; letter-spacing: .12em; }
+.project-list li div { display: grid; gap: 7px; }
+.project-list li b { font-size: 13px; line-height: 1.55; }
+.project-list li small { color: var(--muted); font-size: 10px; }
+.project-gallery { display: grid; grid-template-columns: 1.18fr .82fr .82fr; gap: 10px; margin-top: 100px; }
+.project-gallery figure { position: relative; margin: 0; overflow: hidden; }
+.project-gallery img { width: 100%; height: clamp(260px, 31vw, 470px); object-fit: cover; transition: transform .5s; }
+.project-gallery figure:hover img { transform: scale(1.025); }
+.project-gallery figcaption { position: absolute; left: 0; bottom: 0; padding: 13px 22px; background: var(--yellow); font-size: 12px; font-weight: 800; }
+
+.awards-disclosure, .history-disclosure { margin-top: 70px; border-top: 4px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.awards-disclosure summary, .history-disclosure summary { min-height: 120px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+.awards-disclosure summary span, .history-disclosure summary span { display: grid; font-family: "Yu Mincho", serif; font-size: 24px; font-weight: 700; }
+.awards-disclosure summary small, .history-disclosure summary small { margin-bottom: 4px; color: var(--orange); font: 800 9px Arial, sans-serif; letter-spacing: .2em; }
+.awards-disclosure summary b, .history-disclosure summary b { font-size: 11px; }
+.awards-disclosure[open] summary b::after, .history-disclosure[open] summary b::after { content: " −"; }
+.award-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 55px; padding-bottom: 45px; }
+.award-grid p { display: grid; grid-template-columns: 105px 1fr; gap: 15px; margin: 0; padding: 14px 0; border-top: 1px solid var(--line); font-size: 12px; }
+.award-grid span { color: var(--muted); font-size: 10px; }
+
+.rehabilitation { display: grid; grid-template-columns: 1fr 1fr; background: #0f2f29; color: #fff; }
+.rehab-image { min-height: 850px; overflow: hidden; clip-path: polygon(0 0, 100% 0, calc(100% - 70px) 100%, 0 100%); }
+.rehab-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.72) contrast(1.05); }
+.rehab-copy { padding: clamp(80px, 10vw, 160px) var(--gutter) clamp(80px, 10vw, 160px) clamp(40px, 7vw, 110px); }
+.rehab-copy h2 { margin: 0 0 35px; font-family: "Yu Mincho", serif; font-size: clamp(45px, 5.2vw, 82px); line-height: 1.2; }
+.rehab-copy > p { max-width: 650px; color: #d4dfdb; font-size: 14px; }
+.rehab-copy .lead { color: #fff; font-family: "Yu Mincho", serif; font-size: clamp(19px, 1.8vw, 27px); font-weight: 700; line-height: 1.8; }
+.rehab-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 60px; }
+.rehab-methods div { padding-top: 22px; border-top: 2px solid rgba(255,255,255,.7); }
+.rehab-methods span { display: block; color: var(--yellow); font: 700 10px Arial, sans-serif; }
+.rehab-methods b { display: block; margin-top: 16px; font-family: "Yu Mincho", serif; font-size: 19px; }
+.rehab-methods p { color: #b9c8c3; font-size: 11px; }
+.rehab-methods a { color: var(--yellow); font-size: 11px; font-weight: 800; }
+
+.csr-layout { display: grid; grid-template-columns: 1.2fr .8fr; gap: 12px; margin-top: 70px; }
+.csr-main, .csr-sub { position: relative; min-height: 560px; overflow: hidden; background: #111; color: #fff; }
+.csr-main img, .csr-sub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .68; }
+.csr-main::after, .csr-sub::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.88), transparent 65%); }
+.csr-main div, .csr-sub div { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: clamp(28px, 4vw, 60px); }
+.csr-main span, .csr-sub span { color: var(--yellow); font: 800 10px Arial, sans-serif; letter-spacing: .15em; }
+.csr-main h3, .csr-sub h3 { margin: 10px 0 12px; font-family: "Yu Mincho", serif; font-size: clamp(22px, 2.2vw, 34px); }
+.csr-main p, .csr-sub p { max-width: 600px; margin: 0; font-size: 12px; }
+.csr-sub { min-height: 560px; clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px); }
+.csr-notes { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; border-top: 4px solid var(--ink); }
+.csr-notes p { margin: 0; padding: 28px; border-right: 1px solid var(--line); font-size: 12px; }
+.csr-notes b { display: block; margin-bottom: 10px; color: var(--orange); font-family: Arial, sans-serif; font-size: 10px; letter-spacing: .14em; }
+
+.recruit { display: grid; grid-template-columns: .83fr 1.17fr; background: var(--ink); color: #fff; }
+.recruit-intro { position: sticky; top: 86px; align-self: start; min-height: 760px; padding: clamp(80px, 10vw, 150px) var(--gutter); background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.82)), url("assets/project-kyouwa.jpg") center/cover; clip-path: polygon(0 0, calc(100% - 65px) 0, 100% 65px, 100% 100%, 0 100%); }
+.recruit-intro h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(40px, 4.3vw, 70px); line-height: 1.35; }
+.recruit-intro h2 span { display: block; width: max-content; max-width: 100%; }
+.recruit-intro > p:not(.eyebrow) { max-width: 580px; margin: 35px 0; color: #d2d3d1; font-size: 14px; }
+.recruit-details { padding: clamp(80px, 10vw, 150px) var(--gutter); }
+.job-title { display: flex; align-items: center; gap: 25px; padding-bottom: 26px; border-bottom: 4px solid #fff; }
+.job-title span { padding: 6px 12px; background: var(--yellow); color: #111; font-size: 10px; font-weight: 800; }
+.job-title h3 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(28px, 3vw, 43px); }
+.job-spec { margin: 0; }
+.job-spec > div { display: grid; grid-template-columns: 130px 1fr; gap: 25px; padding: 22px 0; border-bottom: 1px solid #444744; }
+.job-spec dt { color: #8e918e; font-size: 11px; font-weight: 800; }
+.job-spec dd { margin: 0; font-size: 13px; }
+.career-support { margin-top: 45px; padding: 30px; color: #111; background: var(--yellow); clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%); }
+.career-support b { font-family: "Yu Mincho", serif; font-size: 22px; }
+.career-support p { margin: 8px 0 0; font-size: 12px; }
+.entry-flow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 55px; }
+.entry-flow span { font-size: 11px; font-weight: 800; white-space: nowrap; }
+.entry-flow i { width: 100%; height: 1px; background: #5e605e; }
+.entry-note { color: #aeb0ae; font-size: 11px; }
+.recruit-links { display: flex; flex-wrap: wrap; gap: 15px 30px; margin-top: 40px; }
+.recruit-links a { color: var(--yellow); font-size: 11px; font-weight: 800; border-bottom: 1px solid currentColor; }
+
+.parking-list { margin-top: 70px; border-top: 4px solid var(--ink); }
+.parking-list article { display: grid; grid-template-columns: 80px 1fr auto; gap: 30px; align-items: center; min-height: 210px; padding: 35px 0; border-bottom: 1px solid var(--line); }
+.parking-list article > span { color: var(--orange); font: 800 13px Arial, sans-serif; }
+.parking-list h3 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(25px, 2.7vw, 38px); }
+.parking-list p { margin: 5px 0; font-size: 13px; }
+.parking-list small { color: var(--muted); }
+.parking-list a { min-width: 190px; padding: 18px 25px; border: 1px solid var(--ink); font-size: 11px; font-weight: 800; text-align: center; transition: background .2s, color .2s; }
+.parking-list a:hover { background: var(--ink); color: #fff; }
+
+.company { padding-top: 40px; }
+.company-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(60px, 9vw, 140px); margin-top: 65px; }
+.company-profile { margin: 0; border-top: 4px solid var(--ink); }
+.company-profile > div { display: grid; grid-template-columns: 150px 1fr; gap: 25px; padding: 21px 0; border-bottom: 1px solid var(--line); }
+.company-profile dt { color: var(--muted); font-size: 11px; font-weight: 800; }
+.company-profile dd { margin: 0; font-size: 14px; font-weight: 700; }
+.technicians { padding: 38px; background: #e4e1d8; clip-path: polygon(0 0, calc(100% - 35px) 0, 100% 35px, 100% 100%, 0 100%); }
+.technicians h3 { margin: 0 0 25px; font-family: "Yu Mincho", serif; font-size: 25px; }
+.technicians ul { margin: 0; padding: 0; list-style: none; }
+.technicians li { display: flex; justify-content: space-between; gap: 20px; padding: 11px 0; border-bottom: 1px solid #c7c4bb; font-size: 11px; }
+.history-list { margin: 0; padding: 0 0 45px; list-style: none; }
+.history-list li { display: grid; grid-template-columns: 160px 1fr; border-top: 1px solid var(--line); }
+.history-list time, .history-list p { margin: 0; padding: 18px 0; font-size: 12px; }
+.history-list time { color: var(--orange); font-weight: 800; }
+.plan-link { min-height: 125px; display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 30px; padding: 30px 36px; color: #fff; background: var(--green); clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 0 100%); }
+.plan-link span { display: grid; font-family: "Yu Mincho", serif; font-size: 20px; font-weight: 700; }
+.plan-link small { color: #9bb5aa; font: 800 9px Arial, sans-serif; letter-spacing: .17em; }
+.plan-link b { font-size: 11px; }
+
+.contact { display: grid; grid-template-columns: .82fr 1.18fr; padding: clamp(80px, 10vw, 150px) var(--gutter); background: var(--orange); color: #fff; }
+.contact-copy { padding-right: clamp(40px, 8vw, 130px); }
+.contact-copy .eyebrow { color: #fff2a6; }
+.contact-copy h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(39px, 4.6vw, 70px); line-height: 1.35; word-break: keep-all; }
+.contact-copy > p:last-child { margin-top: 30px; font-size: 13px; }
+.contact-actions { border-top: 1px solid rgba(255,255,255,.55); }
+.contact-actions > * { min-height: 142px; display: grid; grid-template-columns: 110px 1fr auto; align-items: center; gap: 25px; border-bottom: 1px solid rgba(255,255,255,.55); }
+.contact-actions small { font: 800 9px Arial, sans-serif; letter-spacing: .18em; }
+.contact-actions strong { font-family: Arial, sans-serif; font-size: clamp(19px, 2.3vw, 34px); letter-spacing: -.02em; overflow-wrap: anywhere; }
+.contact-actions span { font-size: 10px; font-weight: 700; }
+
+.site-footer { padding: 70px var(--gutter) 0; background: var(--black); color: #fff; }
+.footer-brand { display: flex; align-items: center; gap: 18px; }
+.footer-brand img { width: 78px; height: 78px; object-fit: cover; }
+.footer-brand div { display: grid; }
+.footer-brand b { font-family: "Yu Mincho", serif; font-size: 21px; }
+.footer-brand span { color: #777a77; font: 700 8px Arial, sans-serif; letter-spacing: .2em; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 24px 42px; justify-content: flex-end; margin: -48px 0 70px 300px; }
+.site-footer nav a { font-size: 11px; font-weight: 700; }
+.footer-bottom { min-height: 85px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #303330; color: #777a77; font-size: 9px; letter-spacing: .08em; }
+
+@media (max-width: 1180px) {
+  .brand { width: 265px; padding-left: 18px; }
+  .brand span { display: none; }
+  .global-nav a { min-width: auto; padding: 0 13px; font-size: 11px; }
+  .global-nav .nav-contact { min-width: 130px; }
+  .facts div { display: grid; gap: 7px; padding: 35px 28px; }
+  .contact-actions > * { grid-template-columns: 90px 1fr; }
+  .contact-actions span { grid-column: 2; padding-bottom: 20px; }
+}
+
+@media (max-width: 900px) {
+  html { scroll-padding-top: 70px; }
+  .site-header { height: 70px; }
+  .brand { width: auto; padding: 8px 16px; border: 0; }
+  .brand img { width: 54px; height: 54px; }
+  .menu-button { width: 70px; margin-left: auto; display: grid; align-content: center; gap: 5px; padding: 0 21px; border: 0; border-left: 1px solid #333; background: transparent; color: #fff; cursor: pointer; }
+  .menu-button span { height: 1px; background: currentColor; transition: transform .2s, opacity .2s; }
+  .menu-button[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+  .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+  .global-nav { position: absolute; top: 70px; left: 0; right: 0; display: none; padding: 10px 20px 22px; background: var(--black); }
+  .global-nav.open { display: grid; }
+  .global-nav a, .global-nav .nav-contact { min-height: 52px; justify-items: start; padding: 0 10px; border: 0; border-bottom: 1px solid #2c2e2c; }
+  .global-nav .nav-contact { margin-top: 10px; justify-items: center; }
+  .hero { min-height: 760px; }
+  .hero-content { width: 100%; padding-bottom: 110px; }
+  .hero h1 { font-size: clamp(42px, 9vw, 70px); }
+  .hero h1 span { width: auto; white-space: normal; }
+  .facts { grid-template-columns: repeat(2, 1fr); clip-path: none; }
+  .facts div { min-height: 120px; border-bottom: 1px solid rgba(0,0,0,.2); }
+  .about, .row-heading, .project-feature, .rehabilitation, .recruit, .company-layout, .contact { grid-template-columns: 1fr; }
+  .about-copy { padding-top: 36px; }
+  .work-fields { grid-template-columns: 1fr; }
+  .field { min-height: 310px; }
+  .field-pipe { clip-path: none; }
+  .row-heading { gap: 35px; }
+  .row-heading > p { padding-top: 20px; }
+  .feature-photo { position: relative; top: auto; }
+  .project-gallery { grid-template-columns: 1fr 1fr; }
+  .project-gallery figure:first-child { grid-column: 1 / -1; }
+  .rehab-image { min-height: 550px; clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), calc(100% - 50px) 100%, 0 100%); }
+  .csr-layout { grid-template-columns: 1fr; }
+  .csr-notes { grid-template-columns: 1fr; }
+  .csr-notes p { border-right: 0; border-bottom: 1px solid var(--line); }
+  .recruit-intro { position: relative; top: auto; min-height: 650px; }
+  .contact-copy { padding-right: 0; padding-bottom: 65px; }
+  .site-footer nav { justify-content: flex-start; margin: 55px 0; }
+}
+
+@media (max-width: 620px) {
+  .demo-notice { height: 24px; font-size: 8px; }
+  .hero { min-height: 690px; }
+  .hero-image { object-position: 63% center; }
+  .hero-content { padding-top: 75px; }
+  .hero h1 { font-size: clamp(38px, 11.5vw, 55px); line-height: 1.2; }
+  .hero h1 span:nth-child(2) { max-width: 8.2em; }
+  .hero-lead { font-size: 13px; line-height: 1.9; }
+  .hero-actions { display: grid; }
+  .button { min-width: 0; width: 100%; }
+  .hero-meta { gap: 12px; font-size: 7px; }
+  .facts div { min-height: 105px; padding: 25px 18px; }
+  .facts strong { font-size: 34px; }
+  .facts span { font-size: 9px; white-space: normal; }
+  .section { padding-top: 95px; padding-bottom: 95px; }
+  .section-heading h2 { font-size: 40px; }
+  .about { gap: 50px; }
+  .about-copy .lead { font-size: 20px; }
+  .field { padding: 32px 24px; }
+  .project-feature { margin-top: 50px; }
+  .feature-photo img { aspect-ratio: .95; }
+  .project-list li { grid-template-columns: 32px 1fr; }
+  .project-gallery { grid-template-columns: 1fr; margin-top: 60px; }
+  .project-gallery figure:first-child { grid-column: auto; }
+  .project-gallery img { height: 290px; }
+  .award-grid { grid-template-columns: 1fr; }
+  .award-grid p { grid-template-columns: 95px 1fr; }
+  .rehab-image { min-height: 370px; }
+  .rehab-copy { padding-left: var(--gutter); }
+  .rehab-methods { grid-template-columns: 1fr; }
+  .csr-main, .csr-sub { min-height: 490px; }
+  .recruit-intro { min-height: 590px; clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 0 100%); }
+  .recruit-intro h2 { font-size: 39px; }
+  .recruit-intro h2 span { width: auto; }
+  .job-spec > div { grid-template-columns: 1fr; gap: 6px; }
+  .entry-flow { display: grid; grid-template-columns: 1fr; }
+  .entry-flow i { height: 20px; width: 1px; margin-left: 12px; }
+  .parking-list article { grid-template-columns: 35px 1fr; gap: 18px; }
+  .parking-list article > a { grid-column: 1 / -1; }
+  .company-profile > div { grid-template-columns: 105px 1fr; gap: 15px; }
+  .technicians { padding: 28px 22px; }
+  .history-list li { grid-template-columns: 112px 1fr; gap: 12px; }
+  .plan-link { align-items: flex-start; flex-direction: column; }
+  .contact-actions > * { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .contact-actions span { grid-column: auto; padding: 0; }
+  .contact-actions strong { font-size: 22px; }
+  .footer-brand img { width: 65px; height: 65px; }
+  .footer-bottom { align-items: flex-start; gap: 25px; padding: 24px 0; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
