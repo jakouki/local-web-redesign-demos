@@ -55,6 +55,7 @@ button { font: inherit; }
 .section { max-width: var(--max); margin: 0 auto; padding: clamp(100px, 12vw, 190px) var(--gutter); }
 .about > *, .row-heading > *, .project-feature > *, .csr-layout > *, .recruit > *, .company-layout > *, .contact > * { min-width: 0; }
 .section-heading h2 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(42px, 5vw, 78px); font-weight: 600; letter-spacing: -.04em; line-height: 1.25; word-break: keep-all; }
+.about-title span, .csr-title span { display: block; width: max-content; max-width: 100%; white-space: nowrap; }
 .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(70px, 10vw, 170px); align-items: start; }
 .about-copy { padding-top: 74px; border-top: 4px solid var(--ink); }
 .about-copy p { margin: 0 0 24px; font-size: 15px; }
@@ -141,8 +142,9 @@ summary::-webkit-details-marker { display: none; }
 
 .recruit { display: grid; grid-template-columns: .83fr 1.17fr; background: var(--ink); color: #fff; }
 .recruit-intro { position: sticky; top: 86px; align-self: start; min-height: 900px; padding: clamp(80px, 10vw, 150px) var(--gutter); background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.54)), url("assets/recruit-site-tour.jpg") center/cover; clip-path: polygon(0 0, calc(100% - 65px) 0, 100% 65px, 100% 100%, 0 100%); }
-.recruit-intro h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(40px, 4.3vw, 70px); line-height: 1.35; }
+.recruit-intro h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(40px, 3.5vw, 56px); line-height: 1.35; }
 .recruit-intro h2 span { display: block; width: max-content; max-width: 100%; }
+.recruit-intro h2 .recruit-mobile-line { display: block; }
 .recruit-intro > p:not(.eyebrow) { max-width: 580px; margin: 35px 0; color: #d2d3d1; font-size: 14px; }
 .recruit-details { padding: clamp(80px, 10vw, 150px) var(--gutter); }
 .job-title { display: flex; align-items: center; gap: 25px; padding-bottom: 26px; border-bottom: 4px solid #fff; }
@@ -196,9 +198,9 @@ summary::-webkit-details-marker { display: none; }
 .contact { display: grid; grid-template-columns: .82fr 1.18fr; padding: clamp(80px, 10vw, 150px) var(--gutter); background: var(--orange); color: #fff; }
 .contact-copy { padding-right: clamp(40px, 8vw, 130px); }
 .contact-copy .eyebrow { color: #fff2a6; }
-.contact-copy h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(39px, 4.6vw, 70px); line-height: 1.35; word-break: keep-all; }
-.contact-copy h2 > span { display: block; }
-.contact-copy h2 .contact-mobile-line { display: inline; }
+.contact-copy h2 { margin: 0; font-family: "Yu Mincho", serif; font-size: clamp(39px, 3.5vw, 52px); line-height: 1.35; word-break: keep-all; }
+.contact-copy h2 > span { display: block; white-space: nowrap; }
+.contact-copy h2 .contact-mobile-line { display: block; }
 .contact-copy > p:last-child { margin-top: 30px; font-size: 13px; }
 .contact-actions { border-top: 1px solid rgba(255,255,255,.55); }
 .contact-actions > * { min-height: 150px; display: grid; grid-template-columns: 120px minmax(0, 1fr); align-content: center; align-items: center; gap: 4px 28px; border-bottom: 1px solid rgba(255,255,255,.55); }
@@ -221,6 +223,15 @@ summary::-webkit-details-marker { display: none; }
   .brand span { display: none; }
   .global-nav a { min-width: auto; padding: 0 13px; font-size: 11px; }
   .global-nav .nav-contact { min-width: 130px; }
+  .about, .csr .row-heading, .recruit, .contact { grid-template-columns: 1fr; }
+  .about { gap: 55px; }
+  .about-copy { padding-top: 36px; }
+  .csr .row-heading { gap: 35px; }
+  .csr .row-heading > p { padding-top: 20px; }
+  .recruit-intro { position: relative; top: auto; min-height: 720px; }
+  .recruit-intro h2 span, .contact-copy h2 > span { width: max-content; max-width: 100%; white-space: nowrap; }
+  .recruit-intro h2 .recruit-mobile-line, .contact-copy h2 .contact-mobile-line { display: inline; }
+  .contact-copy { padding-right: 0; padding-bottom: 65px; }
   .contact-actions > * { grid-template-columns: 90px 1fr; }
   .contact-actions span { grid-column: 2; padding-bottom: 20px; }
 }
@@ -296,7 +307,8 @@ summary::-webkit-details-marker { display: none; }
   .csr-main, .csr-sub { min-height: 490px; }
   .recruit-intro { min-height: 720px; clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 38px, 100% 100%, 0 100%); }
   .recruit-intro h2 { font-size: 39px; }
-  .recruit-intro h2 span { width: auto; }
+  .recruit-intro h2 span { width: auto; white-space: normal; }
+  .recruit-intro h2 .recruit-mobile-line { display: block; }
   .recruit-photo-note { bottom: 38px; }
   .job-spec > div { grid-template-columns: 1fr; gap: 6px; }
   .entry-flow { display: grid; grid-template-columns: 1fr; }
@@ -311,6 +323,7 @@ summary::-webkit-details-marker { display: none; }
   .contact-actions span { grid-column: auto; padding: 0; }
   .contact-actions strong { font-size: clamp(19px, 6.3vw, 25px); }
   .contact-copy h2 { font-size: 36px; word-break: normal; }
+  .contact-copy h2 > span { width: auto; white-space: normal; }
   .contact-copy h2 .contact-mobile-line { display: block; }
   .footer-brand img { width: 65px; height: 65px; }
   .footer-bottom { align-items: flex-start; gap: 25px; padding: 24px 0; flex-direction: column; }
