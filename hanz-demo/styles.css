@@ -1440,6 +1440,8 @@ a {
   .site-header-solid {
     grid-template-columns: 1fr 76px;
     min-height: 76px;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .brand {
@@ -1458,7 +1460,7 @@ a {
 
   .menu-toggle {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1502,16 +1504,19 @@ a {
 
   .global-nav {
     position: fixed;
-    inset: 0;
+    inset: 76px 0 0;
+    z-index: 2;
     display: grid;
     align-content: center;
     justify-content: stretch;
     padding: 90px var(--side) 40px;
     color: var(--white);
-    background: rgba(21, 24, 20, 0.98);
+    background: rgb(21, 24, 20);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     transition:
       opacity 0.25s ease,
       visibility 0.25s ease,
@@ -1657,6 +1662,10 @@ a {
 
   .menu-toggle {
     width: 68px;
+  }
+
+  .global-nav {
+    inset: 68px 0 0;
   }
 
   .hero {
