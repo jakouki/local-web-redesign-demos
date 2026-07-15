@@ -71,11 +71,6 @@ button, input, textarea { font: inherit; }
 .intro h2 span { display: block; width: max-content; max-width: 100%; white-space: nowrap; }
 .intro-grid > div { padding-top: 24px; border-top: 4px solid var(--navy); }
 .intro-grid p { margin: 0 0 20px; color: #43525b; }
-.intro-facts { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 90px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.intro-facts div { min-height: 130px; display: flex; flex-direction: column; justify-content: center; padding: 24px 34px; border-right: 1px solid var(--line); }
-.intro-facts div:last-child { border-right: 0; }
-.intro-facts small { color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
-.intro-facts strong { margin-top: 8px; font-size: 20px; }
 
 .business { color: var(--white); background: var(--navy-deep); }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 60px; margin-bottom: 58px; }
@@ -236,9 +231,6 @@ button, input, textarea { font: inherit; }
   .hero-media-main { grid-column: 1 / 3; grid-row: auto; clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%, 0 calc(100% - 30px)); }
   .hero-index { display: none; }
   .intro-grid, .news-grid { grid-template-columns: 1fr; gap: 38px; }
-  .intro-facts { grid-template-columns: 1fr; }
-  .intro-facts div { min-height: 105px; border-right: 0; border-bottom: 1px solid var(--line); }
-  .intro-facts div:last-child { border-bottom: 0; }
   .section-heading { display: block; }
   .section-heading > p, .section-heading > a { display: inline-block; margin-top: 24px; }
   .business-main { border-radius: 0 55px 0 0; }
