@@ -1,0 +1,20 @@
+# 株式会社和田商 リデザイン内容対応表
+
+| 元サイト | 内容 | 新しいページ | 状態 |
+|---|---|---|---|
+| `/` | 会社メッセージ・営業品目案内・最新のお知らせ・会社情報 | `/wadasyo-demo/` | matched |
+| `/about/` | 会社概要・会社沿革・アクセスマップ | `/wadasyo-demo/about/` | matched |
+| `/item/` | 営業品目8分類・商品例 | `/wadasyo-demo/items/` | matched |
+| `/shop/` | ハードウェアプロショップ・取扱商品・店舗写真 | `/wadasyo-demo/shop/` | matched |
+| `/salesman/` | 愉快な仲間達・社員集合写真 | `/wadasyo-demo/team/` | matched |
+| `/contact/` | 電話・FAX・メールによる問い合わせ案内 | `/wadasyo-demo/contact/` | matched |
+| `/privacy/` | プライバシーポリシー第1条〜第10条 | `/wadasyo-demo/privacy/` | matched |
+| 外部ブログ | 最新のお知らせ | `http://wadasyo.blog129.fc2.com/` | external link preserved |
+
+## 機能・掲載判断
+
+- 元サイトのお問い合わせはフォームではなく、電話・FAX・メール案内。新サイトでも同じ方式を維持し、電話とメールは端末から起動できるリンクにした。
+- `/mailmg/` は「現在準備中」で、元サイトのナビゲーションからもコメントアウトされているため、新サイトのナビゲーションには掲載していない。
+- `/event22/ev_index.html` は令和3〜4年の終了済み期間限定セールのため、現行キャンペーンと誤認されないよう新サイトには掲載していない。
+- 元サイトの会社情報・商品分類・沿革・プライバシーポリシーは表現を変えずに移設。レイアウト上の不要な空白のみ整理した。
+- 全ページに `noindex, nofollow, noarchive, nosnippet` を設定。
